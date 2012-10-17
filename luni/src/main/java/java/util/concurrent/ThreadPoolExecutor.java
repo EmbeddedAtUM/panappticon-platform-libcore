@@ -9,6 +9,10 @@ import java.util.concurrent.locks.*;
 import java.util.concurrent.atomic.*;
 import java.util.*;
 
+//BEGIN CONFIG_EVENT_LOGGING
+import java.io.*;
+import java.util.EventLogging;
+//END
 /**
  * An {@link ExecutorService} that executes each submitted task using
  * one of possibly several pooled threads, normally configured
@@ -1073,6 +1077,11 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
                     beforeExecute(w.thread, task);
                     Throwable thrown = null;
                     try {
+			//BEGIN CONFIG_EVENT_LOGGING
+			EventLogging eventLogging = EventLogging.getInstance();
+			int runnable_code = System.identityHashCode(task);
+			eventLogging.addEvent(EventLogging.EVENT_CONSUME_ASYNCTASK, runnable_code);	
+			//END
                         task.run();
                     } catch (RuntimeException x) {
                         thrown = x; throw x;
@@ -1286,6 +1295,11 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
          * thread.  If it fails, we know we are shut down or saturated
          * and so reject the task.
          */
+	//BEGIN CONFIG_EVENT_LOGGING
+ 	EventLogging eventLogging = EventLogging.getInstance();
+	int runnable_code = System.identityHashCode(command);	
+	eventLogging.addEvent(EventLogging.EVENT_SUBMIT_ASYNCTASK, runnable_code);	
+	//END
         int c = ctl.get();
         if (workerCountOf(c) < corePoolSize) {
             if (addWorker(command, true))
