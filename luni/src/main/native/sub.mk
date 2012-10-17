@@ -30,6 +30,7 @@ LOCAL_SRC_FILES := \
 	java_util_zip_CRC32.cpp \
 	java_util_zip_Deflater.cpp \
 	java_util_zip_Inflater.cpp \
+	java_util_EventLogging.cpp \
 	libcore_icu_ICU.cpp \
 	libcore_icu_NativeBreakIterator.cpp \
 	libcore_icu_NativeCollation.cpp \
