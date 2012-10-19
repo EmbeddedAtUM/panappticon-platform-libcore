@@ -73,30 +73,13 @@ public class EventLogging {
   }
 
   public void addEvent(int eventtype, int runnable_code){
-     long timestamp = getTime();
-     int tid = getMyTid();
-     synchronized (this){
-     	EventQueue[CurQueue].putLong(timestamp).putInt(eventtype).putInt(tid).putInt(runnable_code).putInt(0);
-	QueueLength[CurQueue] += EVENT_BYTES;
-        if (QueueLength[CurQueue] + EVENT_BYTES >= QUEUE_SIZE){
-	  exportQueue();
-	}
-      }
-     
+      addEvent(eventtype, runnable_code, 0);
   }
 
- public void addEvent(int eventtype){
-    long timestamp = getTime();
-    int tid = getMyTid();
-     synchronized (this){
-     	EventQueue[CurQueue].putLong(timestamp).putInt(eventtype).putInt(tid).putInt(0).putInt(0);
-	QueueLength[CurQueue] += EVENT_BYTES;
-        if (QueueLength[CurQueue] + EVENT_BYTES >= QUEUE_SIZE){
-	  exportQueue();
-	}
-     }
-    
+  public void addEvent(int eventtype){
+     addEvent(eventtype, 0, 0);
   }
+
   public void onPauseExport(){
     synchronized(this){
 	exportQueue();
