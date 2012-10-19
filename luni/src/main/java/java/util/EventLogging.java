@@ -86,7 +86,7 @@ public class EventLogging {
     }
   }
 
-  public void exportQueue(){
+  private void exportQueue(){
      byte [] cur_array = new byte [QueueLength[CurQueue]];
      System.arraycopy(EventQueue[CurQueue].array(), 0, cur_array, 0, QueueLength[CurQueue]);
      Send sender = new Send(cur_array, QueueLength[CurQueue]);
