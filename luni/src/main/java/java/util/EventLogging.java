@@ -33,6 +33,8 @@ public class EventLogging {
   public static final int MSG_POLL_NATIVE = 13;/* before poll message from the native queue */
   public static final int MSG_POLL_DONE = 14;/* poll message done */
   public static final int EVENT_SWITCH_CONFIG = 15;/* the client program changes the core/dvfs config of the device */
+  public static final int UI_KEY_INPUT = 16;/* key input from IME */
+
 
   //Queue size parameters
   private static final int EVENT_BYTES = 8 + 4*4;// 24 bytes total for each event
