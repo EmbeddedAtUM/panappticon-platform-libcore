@@ -33,9 +33,30 @@ public class EventLogging {
   public static final int MSG_POLL_NATIVE = 13;/* before poll message from the native queue */
   public static final int MSG_POLL_DONE = 14;/* poll message done */
   public static final int EVENT_SWITCH_CONFIG = 15;/* the client program changes the core/dvfs config of the device */
-  public static final int UI_KEY_INPUT = 16;/* key input from IME */
-  public static final int EVENT_OPENGL = 17;/* event indicating openGL usage */
-  public static final int UI_INVALIDATE = 18;/* invalidate the UI */
+  public static final int UI_KEY_BEGIN_BATCH = 16;/* key input from IME */
+  public static final int UI_KEY_CLEAR_META = 17;/* key input from IME */
+  public static final int UI_KEY_COMMIT_COMPLETION = 18;/* key input from IME */
+  public static final int UI_KEY_COMMIT_CORRECTION = 19;/* key input from IME */
+  public static final int UI_KEY_COMMIT_TEXT = 20;/* key input from IME */
+  public static final int UI_KEY_DELETE_TEXT = 21;/* key input from IME */
+  public static final int UI_KEY_END_BATCH = 22;/* key input from IME */
+  public static final int UI_KEY_FINISH_COMPOSING = 23;/* key input from IME */
+  public static final int UI_KEY_GET_CAPS = 24;/* key input from IME */
+  public static final int UI_KEY_PERFORM_EDITOR_ACTION = 25;/* key input from IME */
+  public static final int UI_KEY_PERFORM_CONTEXT_MENU = 26;/* key input from IME */
+  public static final int UI_KEY_PERFORM_PRIVATE_COMMAND = 27;/* key input from IME */
+  public static final int UI_KEY_SET_COMPOSING_TEXT = 28;/* key input from IME */
+  public static final int UI_KEY_SET_COMPOSING_REGION = 29;/* key input from IME */
+  public static final int UI_KEY_SET_SELECTION = 30;/* key input from IME */
+  public static final int UI_KEY_SEND_KEY = 31;/* key input from IME */
+  public static final int UI_KEY_GET_TEXT_AFTER = 32;/* key input from IME */
+  public static final int UI_KEY_GET_TEXT_BEFORE = 33;/* key input from IME */
+  public static final int UI_KEY_GET_SELECTED_TEXT = 34;/* key input from IME */ 
+  public static final int UI_KEY_GET_EXTRACTED_TEXT = 35;/* key input from IME */ 
+
+
+  public static final int EVENT_OPENGL = 36;/* event indicating openGL usage */
+  public static final int UI_INVALIDATE = 37;/* invalidate the UI */
 
   //Queue size parameters
   private static final int EVENT_BYTES = 8 + 4*4;// 24 bytes total for each event
