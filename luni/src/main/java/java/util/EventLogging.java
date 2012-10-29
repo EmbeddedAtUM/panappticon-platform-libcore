@@ -35,6 +35,7 @@ public class EventLogging {
   public static final int EVENT_SWITCH_CONFIG = 15;/* the client program changes the core/dvfs config of the device */
   public static final int UI_KEY_INPUT = 16;/* key input from IME */
   public static final int EVENT_OPENGL = 17;/* event indicating openGL usage */
+  public static final int UI_INVALIDATE = 18;/* invalidate the UI */
 
   //Queue size parameters
   private static final int EVENT_BYTES = 8 + 4*4;// 24 bytes total for each event
