@@ -58,6 +58,8 @@ public class EventLogging {
   public static final int EVENT_OPENGL = 36;/* event indicating openGL usage */
   public static final int UI_INVALIDATE = 37;/* invalidate the UI */
 
+  public static final int UI_UPDATE_VSYNC_SCHEDULE = 38;/*schedule the vsync update */
+  public static final int UI_UPDATE_DISPATCH = 39;/* dispatch vsync update */
   //Queue size parameters
   private static final int EVENT_BYTES = 8 + 4*4;// 24 bytes total for each event
   private static final int QUEUE_SIZE = EVENT_BYTES * 5000; //Number of bytes in each buffer, 120K bytes total	
@@ -98,6 +100,13 @@ public class EventLogging {
 
   public void addEvent(int eventtype, int runnable_code){
       addEvent(eventtype, runnable_code, 0);
+  }
+
+  public void addEvent(int eventtype, boolean traversal_scheduled){
+    int traversal = 0;
+    if (traversal_scheduled)
+       traversal = 1;
+    addEvent(eventtype, traversal, 0);
   }
 
   public void addEvent(int eventtype){
